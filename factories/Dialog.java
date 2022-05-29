@@ -1,4 +1,4 @@
-package factory;
+package factories;
 
 import interfaces.equipamento.Button;
 

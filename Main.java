@@ -1,8 +1,8 @@
 import enums.Botoes;
-import factory.Dialog;
-import factory.HtmlDialog;
-import factory.IosDialog;
-import factory.WindowsDialog;
+import factories.Dialog;
+import factories.HtmlDialog;
+import factories.IosDialog;
+import factories.WindowsDialog;
 
 public class Main {
   private static Dialog instance;

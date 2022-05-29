@@ -1,7 +1,5 @@
 package interfaces.exercicio;
 
-import java.util.Arrays;
-
 import interfaces.equipamento.Button;
 
 public class Exercicio {

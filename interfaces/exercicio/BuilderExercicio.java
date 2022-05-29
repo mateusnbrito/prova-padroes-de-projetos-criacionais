@@ -1,7 +1,5 @@
 package interfaces.exercicio;
 
-import interfaces.equipamento.Button;
-
 public class BuilderExercicio {
   Boolean nome;
   Boolean categorias;
@@ -27,7 +25,7 @@ public class BuilderExercicio {
     return this;
   }
 
-  public Exercicio build(){
-    return new Exercicio(nome, categorias, gruposMusculares, equipamentos);
-  }
+  // public Exercicio build(){
+  //   // return new Exercicio(nome, categorias, gruposMusculares, equipamentos);
+  // }
 }
