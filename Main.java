@@ -32,7 +32,7 @@ public class Main {
       .equipamentos(equipamentos)
       .build();
 
-    System.out.println(exercicio.toString());
+    exercicio.getEquipamentos().get(0).incrementarQuantidade();
   }
 
   static ArrayList<Equipamento> criarEquipamentos(ArrayList<TiposDeEquipamentos> tiposDeEquipamentos) {

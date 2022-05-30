@@ -56,6 +56,22 @@ public class Exercicio {
     }
   }
 
+  public String getNome() {
+    return nome;
+  }
+
+  public ArrayList<TiposDeExercicios> getCategorias() {
+    return categorias;
+  }
+
+  public ArrayList<TiposDeGruposMusculares> getGruposMusculares() {
+    return gruposMusculares;
+  }
+
+  public ArrayList<Equipamento> getEquipamentos() {
+    return equipamentos;
+  }
+
   @Override
   public String toString() {
     return "Exercicio [categorias=" + categorias + ", equipamentos=" + equipamentos + ", gruposMusculares="

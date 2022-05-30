@@ -1,6 +1,6 @@
 package equipamento.interfaces;
 
-public class EquipamentoAcessorios implements Equipamento{
+public class EquipamentoAcessorios extends Equipamento{
   String descricao;
 
   private static EquipamentoAcessorios instance;

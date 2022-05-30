@@ -1,6 +1,6 @@
 package equipamento.interfaces;
 
-public class EquipamentoHalteres implements Equipamento{
+public class EquipamentoHalteres extends Equipamento{
   Double peso;
 
   private static EquipamentoHalteres instance;

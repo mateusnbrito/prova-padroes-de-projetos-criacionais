@@ -1,6 +1,23 @@
 package equipamento.interfaces;
 
-public interface Equipamento {
-  String identificador = null;
-  Integer quantidade = null;
+public abstract class Equipamento {
+  String identificador;
+  Integer quantidade;
+
+  public void incrementarQuantidade(){
+    if(this.quantidade != null){
+      this.quantidade++;
+    }
+    else{
+      this.quantidade = 1;
+    }
+  }
+
+  public String getIdentificador() {
+    return identificador;
+  }
+
+  public Integer getQuantidade() {
+    return quantidade;
+  }
 }

@@ -1,6 +1,6 @@
 package equipamento.interfaces;
 
-public class EquipamentoMaquinas implements Equipamento {
+public class EquipamentoMaquinas extends Equipamento {
   String descricao;
   String marca;
 
