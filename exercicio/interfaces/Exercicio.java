@@ -1,53 +1,64 @@
 package exercicio.interfaces;
 
+import java.util.ArrayList;
+
+import enums.TiposDeExercicios;
+import enums.TiposDeGruposMusculares;
 import equipamento.interfaces.Equipamento;
 
 public class Exercicio {
-  // Boolean nome;
-  // Boolean categorias;
-  // Boolean gruposMusculares;
-  // Button equipamentos;
-  Boolean nome;
-  Boolean categorias;
-  Boolean gruposMusculares;
-  Equipamento equipamentos;
+  private String nome;
+  private ArrayList<TiposDeExercicios> categorias;
+  private ArrayList<TiposDeGruposMusculares> gruposMusculares;
+  private ArrayList<Equipamento> equipamentos;
 
-  public Exercicio(Boolean nome, Boolean categorias, Boolean gruposMusculares, Equipamento equipamentos) {
+  private Exercicio(String nome, ArrayList<TiposDeExercicios> categorias, ArrayList<TiposDeGruposMusculares> gruposMusculares, ArrayList<Equipamento> equipamentos) {
     this.nome = nome;
     this.categorias = categorias;
     this.gruposMusculares = gruposMusculares;
     this.equipamentos = equipamentos;
   }
 
-  public Boolean getNome() {
-    return nome;
+  public static final class ExercicioBuilder{
+    private String nome;
+    private ArrayList<TiposDeExercicios> categorias;
+    private ArrayList<TiposDeGruposMusculares> gruposMusculares;
+    private ArrayList<Equipamento> equipamentos;
+
+    public ExercicioBuilder() {}
+
+    public static ExercicioBuilder exercicioBuilder() {
+      return new ExercicioBuilder();
+    }
+
+    public ExercicioBuilder nome(String nome){
+      this.nome = nome;
+      return this;
+    }
+
+    public ExercicioBuilder categorias(ArrayList<TiposDeExercicios> categorias){
+      this.categorias = categorias;
+      return this;
+    }
+
+    public ExercicioBuilder gruposMusculares(ArrayList<TiposDeGruposMusculares> gruposMusculares){
+      this.gruposMusculares = gruposMusculares;
+      return this;
+    }
+
+    public ExercicioBuilder equipamentos(ArrayList<Equipamento> equipamentos){
+      this.equipamentos = equipamentos;
+      return this;
+    }
+
+    public Exercicio build(){
+      return new Exercicio(nome, categorias, gruposMusculares, equipamentos);
+    }
   }
 
-  public void setNome(Boolean nome) {
-    this.nome = nome;
-  }
-
-  public Boolean getCategorias() {
-    return categorias;
-  }
-
-  public void setCategorias(Boolean categorias) {
-    this.categorias = categorias;
-  }
-
-  public Boolean getGruposMusculares() {
-    return gruposMusculares;
-  }
-
-  public void setGruposMusculares(Boolean gruposMusculares) {
-    this.gruposMusculares = gruposMusculares;
-  }
-
-  public Equipamento getEquipamentos() {
-    return equipamentos;
-  }
-
-  public void setEquipamentos(Equipamento equipamentos) {
-    this.equipamentos = equipamentos;
+  @Override
+  public String toString() {
+    return "Exercicio [categorias=" + categorias + ", equipamentos=" + equipamentos + ", gruposMusculares="
+        + gruposMusculares + ", nome=" + nome + "]";
   }
 }
