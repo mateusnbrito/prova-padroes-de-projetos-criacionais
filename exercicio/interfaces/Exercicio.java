@@ -1,6 +1,6 @@
-package interfaces.exercicio;
+package exercicio.interfaces;
 
-import interfaces.equipamento.Button;
+import equipamento.interfaces.Equipamento;
 
 public class Exercicio {
   // Boolean nome;
@@ -10,9 +10,9 @@ public class Exercicio {
   Boolean nome;
   Boolean categorias;
   Boolean gruposMusculares;
-  Button equipamentos;
+  Equipamento equipamentos;
 
-  public Exercicio(Boolean nome, Boolean categorias, Boolean gruposMusculares, Button equipamentos) {
+  public Exercicio(Boolean nome, Boolean categorias, Boolean gruposMusculares, Equipamento equipamentos) {
     this.nome = nome;
     this.categorias = categorias;
     this.gruposMusculares = gruposMusculares;
@@ -43,11 +43,11 @@ public class Exercicio {
     this.gruposMusculares = gruposMusculares;
   }
 
-  public Button getEquipamentos() {
+  public Equipamento getEquipamentos() {
     return equipamentos;
   }
 
-  public void setEquipamentos(Button equipamentos) {
+  public void setEquipamentos(Equipamento equipamentos) {
     this.equipamentos = equipamentos;
   }
 }

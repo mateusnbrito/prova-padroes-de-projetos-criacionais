@@ -1,35 +1,44 @@
-import enums.Botoes;
-import factories.Dialog;
-import factories.HtmlDialog;
-import factories.IosDialog;
-import factories.WindowsDialog;
+import enums.TiposDeEquipamentos;
+import equipamento.factories.FactoryEquipamento;
+import equipamento.factories.FactoryEquipamentoHalteres;
+import equipamento.factories.FactoryEquipamentoAcessorios;
 
 public class Main {
-  private static Dialog instance;
+  private static FactoryEquipamento instance;
 
   public static void main(String[] args) {
-    configure(Botoes.HTML);
-    runBusinessLogic();
-    configure(Botoes.HTML);
-    runBusinessLogic();
-    configure(Botoes.HTML);
-    runBusinessLogic();
-    configure(Botoes.HTML);
-    runBusinessLogic();
+    configurar(TiposDeEquipamentos.ACESSORIOS);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.ACESSORIOS);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.ACESSORIOS);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.HALTERES);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.HALTERES);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.HALTERES);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.MAQUINAS);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.MAQUINAS);
+    rodarLogicaDeNegocio();
+    configurar(TiposDeEquipamentos.MAQUINAS);
+    rodarLogicaDeNegocio();
   }
 
-  static void configure(Botoes botao) {
-    switch(botao){
-      case HTML: {
-        instance = new HtmlDialog();
+  static void configurar(TiposDeEquipamentos tipoDeEquipamento) {
+    switch(tipoDeEquipamento){
+      case ACESSORIOS: {
+        instance = new FactoryEquipamentoAcessorios();
         break;
       }
-      case WINDOWS: {
-        instance = new WindowsDialog();
+      case HALTERES: {
+        instance = new FactoryEquipamentoHalteres();
         break;
       }
-      case IOS: {
-        instance = new IosDialog();
+      case MAQUINAS: {
+        instance = new FactoryEquipamentoAcessorios();
         break;
       }
       default:
@@ -37,7 +46,7 @@ public class Main {
     }
   }
 
-  static void runBusinessLogic() {
-    instance.renderWindow();
+  static void rodarLogicaDeNegocio() {
+    System.out.println(instance.createEquipamento());
   }
 }

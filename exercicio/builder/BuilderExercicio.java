@@ -1,4 +1,4 @@
-package interfaces.exercicio;
+package exercicio.builder;
 
 public class BuilderExercicio {
   Boolean nome;
