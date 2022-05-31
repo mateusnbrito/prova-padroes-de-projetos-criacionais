@@ -1,16 +1,13 @@
 package equipamento.interfaces;
 
+import java.util.UUID;
+
 public abstract class Equipamento {
-  String identificador;
-  Integer quantidade;
+  String identificador = UUID.randomUUID().toString();
+  Integer quantidade = 0;
 
   public void incrementarQuantidade(){
-    if(this.quantidade != null){
-      this.quantidade++;
-    }
-    else{
-      this.quantidade = 1;
-    }
+    this.quantidade++;
   }
 
   public String getIdentificador() {
@@ -19,5 +16,10 @@ public abstract class Equipamento {
 
   public Integer getQuantidade() {
     return quantidade;
+  }
+
+  @Override
+  public String toString() {
+    return "Equipamento [identificador=" + identificador + ", quantidade=" + quantidade + "]";
   }
 }

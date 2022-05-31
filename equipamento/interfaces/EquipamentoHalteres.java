@@ -5,13 +5,26 @@ public class EquipamentoHalteres extends Equipamento{
 
   private static EquipamentoHalteres instance;
 
-  private EquipamentoHalteres(){}
+  private EquipamentoHalteres(Double peso){
+    this.peso = peso;
 
-  public static EquipamentoHalteres getInstance(){
+    super.incrementarQuantidade();
+  }
+
+  public static EquipamentoHalteres getInstance(Double peso){
     if(instance == null){
-      instance = new EquipamentoHalteres();
+      instance = new EquipamentoHalteres(peso);
     }
 
     return instance;
+  }
+
+  public Double getPeso() {
+    return peso;
+  }
+
+  @Override
+  public String toString() {
+    return "\nIdentificador: " + identificador + "\nQuantidade: " + quantidade + "\nPeso: " + peso;
   }
 }
