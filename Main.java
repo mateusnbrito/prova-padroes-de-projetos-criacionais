@@ -13,11 +13,11 @@ import exercicio.interfaces.Exercicio.ExercicioBuilder;
 public class Main {
   public static void main(String[] args) {
     TiposDeEquipamentos equipamentoTipoDeEquipamento;
-    String equipamentoDescricao;
-    String equipamentoMarca;
-    Double equipamentoPeso;
-    String equipamentoIdentificador;
-    Integer equipamentoQuantidade;
+    String equipamentoDescricao = "";
+    String equipamentoMarca = "";
+    Double equipamentoPeso = null;
+    String equipamentoIdentificador = "";
+    Integer equipamentoQuantidade = null;
     String exercicioNome = "";
     ArrayList<TiposDeExercicios> exercicioCategorias = new ArrayList<>();
     ArrayList<TiposDeGruposMusculares> exercicioGruposMusculares = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Main {
     equipamentoMarca = "Life Fitness";
     equipamentoPeso = 10.0;
     equipamentoIdentificador = "1";
-    equipamentoQuantidade = 2;
+    equipamentoQuantidade = 1;
 
     // novoEquipamento2
     Equipamento novoEquipamento2 = criarEquipamento(equipamentoTipoDeEquipamento, equipamentoDescricao, equipamentoMarca, equipamentoPeso, equipamentoIdentificador, equipamentoQuantidade);
