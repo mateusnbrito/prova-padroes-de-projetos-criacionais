@@ -6,14 +6,19 @@ public class EquipamentoMaquinas extends Equipamento {
 
   private static EquipamentoMaquinas instance;
 
-  private EquipamentoMaquinas(String descricao, String marca){
+  private EquipamentoMaquinas(String descricao, String marca, String identificador, Integer quantidade){
     this.descricao = descricao;
     this.marca = marca;
+    this.identificador = identificador;
+    this.quantidade = quantidade;
   }
 
-  public static EquipamentoMaquinas getInstance(String descricao, String marca){
+  public static EquipamentoMaquinas getInstance(String descricao, String marca, String identificador, Integer quantidade){
     if(instance == null){
-      instance = new EquipamentoMaquinas(descricao, marca);
+      instance = new EquipamentoMaquinas(descricao, marca, identificador, quantidade);
+    }
+    else{
+      instance.quantidade+=quantidade;
     }
 
     return instance;

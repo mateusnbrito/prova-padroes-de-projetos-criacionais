@@ -37,6 +37,7 @@ public class Exercicio {
     }
 
     public ExercicioBuilder categorias(ArrayList<TiposDeExercicios> categorias){
+      // categorias.size() > 0
       this.categorias = categorias;
       return this;
     }

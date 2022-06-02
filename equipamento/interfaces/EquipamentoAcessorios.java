@@ -5,13 +5,18 @@ public class EquipamentoAcessorios extends Equipamento{
 
   private static EquipamentoAcessorios instance;
 
-  private EquipamentoAcessorios(String descricao){
+  private EquipamentoAcessorios(String descricao, String identificador, Integer quantidade){
+    this.identificador = identificador;
+    this.quantidade = quantidade;
     this.descricao = descricao;
   }
 
-  public static EquipamentoAcessorios getInstance(String descricao){
+  public static EquipamentoAcessorios getInstance(String descricao, String identificador, Integer quantidade){
     if(instance == null){
-      instance = new EquipamentoAcessorios(descricao);
+      instance = new EquipamentoAcessorios(descricao, identificador, quantidade);
+    }
+    else{
+      instance.quantidade+=quantidade;
     }
 
     return instance;

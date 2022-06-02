@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
 
 import enums.TiposDeEquipamentos;
 import enums.TiposDeExercicios;
@@ -15,139 +12,81 @@ import exercicio.interfaces.Exercicio.ExercicioBuilder;
 
 public class Main {
   public static void main(String[] args) {
-    Exercicio exercicio = null;
-    String exercicioNome = null;
+    TiposDeEquipamentos equipamentoTipoDeEquipamento;
+    String equipamentoDescricao;
+    String equipamentoMarca;
+    Double equipamentoPeso;
+    String equipamentoIdentificador;
+    Integer equipamentoQuantidade;
+    String exercicioNome = "";
     ArrayList<TiposDeExercicios> exercicioCategorias = new ArrayList<>();
     ArrayList<TiposDeGruposMusculares> exercicioGruposMusculares = new ArrayList<>();
     ArrayList<TiposDeEquipamentos> exercicioEquipamentos = new ArrayList<>();
     ArrayList<Equipamento> equipamentos = new ArrayList<>();
 
-    Scanner scanner = new Scanner(System.in);
-    Boolean inputFinalizado = false;
+    // TODO: 1 - Esquema de Criação de Equipamentos
+    equipamentoTipoDeEquipamento = TiposDeEquipamentos.MAQUINAS;
+    equipamentoDescricao = "Esteira Ergométrica";
+    equipamentoMarca = "Life Fitness";
+    equipamentoPeso = 10.0;
+    equipamentoIdentificador = "1";
+    equipamentoQuantidade = 1;
 
-    criarEquipamento(TiposDeEquipamentos.MAQUINAS, "Esta é a descrição", "Life Fitness", null);
+    // novoEquipamento1
+    Equipamento novoEquipamento1 = criarEquipamento(equipamentoTipoDeEquipamento, equipamentoDescricao, equipamentoMarca, equipamentoPeso, equipamentoIdentificador, equipamentoQuantidade);
+    System.out.println(novoEquipamento1.toString());
 
-    while(!inputFinalizado){
-      String optionNome;
-      String optionTiposDeExercicios;
-      String optionTiposDeGruposMusculares;
-      String optionTiposDeEquipamentos;
+    equipamentoTipoDeEquipamento = TiposDeEquipamentos.MAQUINAS;
+    equipamentoDescricao = "Esteira Ergométrica";
+    equipamentoMarca = "Life Fitness";
+    equipamentoPeso = 10.0;
+    equipamentoIdentificador = "1";
+    equipamentoQuantidade = 2;
 
-      System.out.println("Nome do exercício:");
-      optionNome = scanner.nextLine();
-      System.out.println();
+    // novoEquipamento2
+    Equipamento novoEquipamento2 = criarEquipamento(equipamentoTipoDeEquipamento, equipamentoDescricao, equipamentoMarca, equipamentoPeso, equipamentoIdentificador, equipamentoQuantidade);
+    System.out.println(novoEquipamento2.toString());
 
-      System.out.println("Categorias do exercício:");
+    // TODO: 2 - Esquema de Criação de Exercicios
+    exercicioNome = "Caminhada na Esteira";
+    exercicioCategorias.add(TiposDeExercicios.CARDIOVASCULAR);
+    exercicioCategorias.add(TiposDeExercicios.MOBILIDADE);
+    exercicioGruposMusculares.add(TiposDeGruposMusculares.COXAS);
+    exercicioGruposMusculares.add(TiposDeGruposMusculares.PANTURRILHAS);
+    exercicioEquipamentos.add(TiposDeEquipamentos.MAQUINAS);
+    equipamentos.add(novoEquipamento1);
 
-      Arrays.asList(TiposDeExercicios.values()).forEach(tipoDeExercicio -> {
-        System.out.println(tipoDeExercicio);
-      });
+    // novoExercicio1
+    Exercicio novoExercicio1 = criarExercicio(exercicioNome, exercicioCategorias, exercicioGruposMusculares, exercicioEquipamentos, equipamentos);
+    System.out.println(novoExercicio1.toString());
+    exercicioCategorias.clear();
+    exercicioGruposMusculares.clear();
+    exercicioEquipamentos.clear();
+    equipamentos.clear();
 
-      System.out.println();
-      optionTiposDeExercicios = scanner.nextLine();
-      System.out.println();
+    exercicioNome = "Caminhada na Esteira";
+    exercicioCategorias.add(TiposDeExercicios.CARDIOVASCULAR);
+    exercicioGruposMusculares.add(TiposDeGruposMusculares.COXAS);
+    exercicioEquipamentos.add(TiposDeEquipamentos.MAQUINAS);
+    equipamentos.add(novoEquipamento2);
 
-      System.out.println("Grupos musculares do exercício:");
+    // novoExercicio2
+    Exercicio novoExercicio2 = criarExercicio(exercicioNome, exercicioCategorias, exercicioGruposMusculares, exercicioEquipamentos, equipamentos);
+    System.out.println(novoExercicio2.toString());
+    exercicioCategorias.clear();
+    exercicioGruposMusculares.clear();
+    exercicioEquipamentos.clear();
+    equipamentos.clear();
 
-      Arrays.asList(TiposDeGruposMusculares.values()).forEach(tipoDeGrupoMuscular -> {
-        System.out.println(tipoDeGrupoMuscular);
-      });
+    exercicioNome = "Caminhada na Esteira";
 
-      System.out.println();
-      optionTiposDeGruposMusculares = scanner.nextLine();
-      System.out.println();
-
-      System.out.println("Equipamentos do exercício:");
-
-      Arrays.asList(TiposDeEquipamentos.values()).forEach(tipoDeEquipamento -> {
-        System.out.println(tipoDeEquipamento);
-      });
-
-      System.out.println();
-      optionTiposDeEquipamentos = scanner.nextLine();
-      System.out.println();
-
-      System.out.println(optionNome.getClass().getSimpleName());
-
-      if((optionNome.getClass().getSimpleName()).equals("String")){
-        exercicioNome = optionNome;
-      }
-
-      if((optionTiposDeExercicios.getClass().getSimpleName()).equals("String")){
-        List<String> inputOptions = Arrays.asList(optionTiposDeExercicios.split("\\s*,\\s*"));
-
-        Arrays.asList(TiposDeExercicios.values()).forEach(tipoDeExercicio -> {
-          inputOptions.forEach(inputOption -> {
-            if(inputOption.equalsIgnoreCase(tipoDeExercicio.toString())){
-              exercicioCategorias.add(tipoDeExercicio);
-            }
-          });
-        });
-      }
-
-      if((optionTiposDeGruposMusculares.getClass().getSimpleName()).equals("String")){
-        List<String> inputOptions = Arrays.asList(optionTiposDeGruposMusculares.split("\\s*,\\s*"));
-
-        Arrays.asList(TiposDeGruposMusculares.values()).forEach(tipoDeGrupoMuscular -> {
-          inputOptions.forEach(inputOption -> {
-            if(inputOption.equalsIgnoreCase(tipoDeGrupoMuscular.toString())){
-              exercicioGruposMusculares.add(tipoDeGrupoMuscular);
-            }
-          });
-        });
-      }
-
-      if((optionTiposDeEquipamentos.getClass().getSimpleName()).equals("String")){
-        List<String> inputOptions = Arrays.asList(optionTiposDeEquipamentos.split("\\s*,\\s*"));
-
-        Arrays.asList(TiposDeEquipamentos.values()).forEach(tipoDeEquipamento -> {
-          inputOptions.forEach(inputOption -> {
-            if(inputOption.equalsIgnoreCase(tipoDeEquipamento.toString())){
-              Equipamento novoEquipamento;
-              String optionDescricao = null;
-              Double optionPeso = null;
-              String optionMarca = null;
-
-              switch(tipoDeEquipamento){
-                case ACESSORIOS: {
-                  System.out.println("Descrição do Acessório:");
-                  optionDescricao = scanner.nextLine();
-                  System.out.println();
-                  break;
-                }
-                case HALTERES: {
-                  System.out.println("Peso do Halter:");
-                  optionPeso = scanner.nextDouble();
-                  System.out.println();
-                  break;
-                }
-                case MAQUINAS: {
-                  System.out.println("Descrição da Máquina:");
-                  optionDescricao = scanner.nextLine();
-                  System.out.println();
-                  System.out.println("Marca da Máquina:");
-                  optionMarca = scanner.nextLine();
-                  System.out.println();
-                  break;
-                }
-              }
-
-              novoEquipamento = criarEquipamento(tipoDeEquipamento, optionDescricao, optionMarca, optionPeso);
-
-              equipamentos.add(novoEquipamento);
-            }
-          });
-        });
-      }
-
-      inputFinalizado = true;
-    }
-
-    scanner.close();
-
-    exercicio = criarExercicio(exercicioNome, exercicioCategorias, exercicioGruposMusculares, exercicioEquipamentos, equipamentos);
-
-    imprimirExercicio(exercicio);
+    // novoExercicio3
+    Exercicio novoExercicio3 = criarExercicio(exercicioNome, exercicioCategorias, exercicioGruposMusculares, exercicioEquipamentos, equipamentos);
+    System.out.println(novoExercicio3.toString());
+    exercicioCategorias.clear();
+    exercicioGruposMusculares.clear();
+    exercicioEquipamentos.clear();
+    equipamentos.clear();
   }
 
   private static Exercicio criarExercicio(String exercicioNome, ArrayList<TiposDeExercicios> exercicioCategorias, ArrayList<TiposDeGruposMusculares> exercicioGruposMusculares, ArrayList<TiposDeEquipamentos> exercicioEquipamentos, ArrayList<Equipamento> equipamentos){
@@ -163,32 +102,26 @@ public class Main {
     return novoExercicio;
   }
 
-  private static Equipamento criarEquipamento(TiposDeEquipamentos tiposDeEquipamentos, String descricao, String marca, Double peso) {
+  private static Equipamento criarEquipamento(TiposDeEquipamentos tiposDeEquipamentos, String descricao, String marca, Double peso, String identificador, Integer quantidade) {
     Equipamento equipamento = null;
 
     switch(tiposDeEquipamentos){
       case ACESSORIOS: {
-        equipamento = new FactoryEquipamentoAcessorios().createEquipamento(descricao);
+        equipamento = new FactoryEquipamentoAcessorios().createEquipamento(descricao, identificador, quantidade);
         break;
       }
       case HALTERES: {
-        equipamento = new FactoryEquipamentoHalteres().createEquipamento(peso);
+        equipamento = new FactoryEquipamentoHalteres().createEquipamento(peso, identificador, quantidade);
         break;
       }
       case MAQUINAS: {
-        equipamento = new FactoryEquipamentoMaquinas().createEquipamento(descricao, marca);
+        equipamento = new FactoryEquipamentoMaquinas().createEquipamento(descricao, marca, identificador, quantidade);
         break;
       }
       default:
         break;
     }
 
-    equipamento.incrementarQuantidade();
-
     return equipamento;
-  }
-
-  private static void imprimirExercicio(Exercicio exercicio){
-    System.out.println(exercicio.toString());
   }
 }

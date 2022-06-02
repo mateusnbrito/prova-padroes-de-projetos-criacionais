@@ -1,14 +1,8 @@
 package equipamento.interfaces;
 
-import java.util.UUID;
-
 public abstract class Equipamento {
-  String identificador = UUID.randomUUID().toString();
-  Integer quantidade = 0;
-
-  public void incrementarQuantidade(){
-    this.quantidade++;
-  }
+  String identificador;
+  Integer quantidade;
 
   public String getIdentificador() {
     return identificador;

@@ -4,8 +4,8 @@ import equipamento.interfaces.Equipamento;
 import equipamento.interfaces.EquipamentoAcessorios;
 
 public class FactoryEquipamentoAcessorios extends FactoryEquipamento{
-  public Equipamento createEquipamento(String descricao) {
-    return EquipamentoAcessorios.getInstance(descricao);
+  public Equipamento createEquipamento(String descricao, String identificador, Integer quantidade) {
+    return EquipamentoAcessorios.getInstance(descricao, identificador, quantidade);
   }
 
   @Override
