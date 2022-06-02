@@ -7,8 +7,6 @@ public class EquipamentoHalteres extends Equipamento{
 
   private EquipamentoHalteres(Double peso){
     this.peso = peso;
-
-    super.incrementarQuantidade();
   }
 
   public static EquipamentoHalteres getInstance(Double peso){

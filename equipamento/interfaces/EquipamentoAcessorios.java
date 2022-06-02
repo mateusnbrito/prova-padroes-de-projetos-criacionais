@@ -7,14 +7,11 @@ public class EquipamentoAcessorios extends Equipamento{
 
   private EquipamentoAcessorios(String descricao){
     this.descricao = descricao;
-
-    super.incrementarQuantidade();
   }
 
   public static EquipamentoAcessorios getInstance(String descricao){
     if(instance == null){
       instance = new EquipamentoAcessorios(descricao);
-      
     }
 
     return instance;

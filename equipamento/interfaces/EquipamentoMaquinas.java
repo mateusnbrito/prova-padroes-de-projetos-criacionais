@@ -9,8 +9,6 @@ public class EquipamentoMaquinas extends Equipamento {
   private EquipamentoMaquinas(String descricao, String marca){
     this.descricao = descricao;
     this.marca = marca;
-
-    super.incrementarQuantidade();
   }
 
   public static EquipamentoMaquinas getInstance(String descricao, String marca){
