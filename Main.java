@@ -57,7 +57,13 @@ public class Main {
     equipamentos.add(novoEquipamento1);
 
     // novoExercicio1
-    Exercicio novoExercicio1 = criarExercicio(exercicioNome, exercicioCategorias, exercicioGruposMusculares, exercicioEquipamentos, equipamentos);
+    Exercicio novoExercicio1 = ExercicioBuilder.exercicioBuilder()
+      .nome(exercicioNome)
+      .categorias(exercicioCategorias)
+      .gruposMusculares(exercicioGruposMusculares)
+      .equipamentos(equipamentos)
+      .build();
+
     System.out.println(novoExercicio1.toString());
     exercicioCategorias.clear();
     exercicioGruposMusculares.clear();
@@ -65,41 +71,29 @@ public class Main {
     equipamentos.clear();
 
     exercicioNome = "Caminhada na Esteira";
-    exercicioCategorias.add(TiposDeExercicios.CARDIOVASCULAR);
     exercicioGruposMusculares.add(TiposDeGruposMusculares.COXAS);
     exercicioEquipamentos.add(TiposDeEquipamentos.MAQUINAS);
     equipamentos.add(novoEquipamento2);
 
     // novoExercicio2
-    Exercicio novoExercicio2 = criarExercicio(exercicioNome, exercicioCategorias, exercicioGruposMusculares, exercicioEquipamentos, equipamentos);
+    Exercicio novoExercicio2 = ExercicioBuilder.exercicioBuilder()
+      .nome(exercicioNome)
+      .gruposMusculares(exercicioGruposMusculares)
+      .equipamentos(equipamentos)
+      .build();
+
     System.out.println(novoExercicio2.toString());
-    exercicioCategorias.clear();
     exercicioGruposMusculares.clear();
-    exercicioEquipamentos.clear();
     equipamentos.clear();
 
     exercicioNome = "Caminhada na Esteira";
 
     // novoExercicio3
-    Exercicio novoExercicio3 = criarExercicio(exercicioNome, exercicioCategorias, exercicioGruposMusculares, exercicioEquipamentos, equipamentos);
+    Exercicio novoExercicio3 = ExercicioBuilder.exercicioBuilder()
+    .nome(exercicioNome)
+    .build();
+
     System.out.println(novoExercicio3.toString());
-    exercicioCategorias.clear();
-    exercicioGruposMusculares.clear();
-    exercicioEquipamentos.clear();
-    equipamentos.clear();
-  }
-
-  private static Exercicio criarExercicio(String exercicioNome, ArrayList<TiposDeExercicios> exercicioCategorias, ArrayList<TiposDeGruposMusculares> exercicioGruposMusculares, ArrayList<TiposDeEquipamentos> exercicioEquipamentos, ArrayList<Equipamento> equipamentos){
-    Exercicio novoExercicio;
-
-    novoExercicio = ExercicioBuilder.exercicioBuilder()
-      .nome(exercicioNome)
-      .categorias(exercicioCategorias)
-      .gruposMusculares(exercicioGruposMusculares)
-      .equipamentos(equipamentos)
-      .build();
-
-    return novoExercicio;
   }
 
   private static Equipamento criarEquipamento(TiposDeEquipamentos tiposDeEquipamentos, String descricao, String marca, Double peso, String identificador, Integer quantidade) {
