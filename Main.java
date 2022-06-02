@@ -25,6 +25,8 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     Boolean inputFinalizado = false;
 
+    criarEquipamento(TiposDeEquipamentos.MAQUINAS, "Esta é a descrição", "Life Fitness", null);
+
     while(!inputFinalizado){
       String optionNome;
       String optionTiposDeExercicios;
@@ -130,8 +132,7 @@ public class Main {
                 }
               }
 
-              novoEquipamento = criarEquipamentos(tipoDeEquipamento, optionDescricao, optionMarca, optionPeso);
-              novoEquipamento.incrementarQuantidade();
+              novoEquipamento = criarEquipamento(tipoDeEquipamento, optionDescricao, optionMarca, optionPeso);
 
               equipamentos.add(novoEquipamento);
             }
@@ -162,7 +163,7 @@ public class Main {
     return novoExercicio;
   }
 
-  private static Equipamento criarEquipamentos(TiposDeEquipamentos tiposDeEquipamentos, String descricao, String marca, Double peso) {
+  private static Equipamento criarEquipamento(TiposDeEquipamentos tiposDeEquipamentos, String descricao, String marca, Double peso) {
     Equipamento equipamento = null;
 
     switch(tiposDeEquipamentos){
@@ -181,6 +182,8 @@ public class Main {
       default:
         break;
     }
+
+    equipamento.incrementarQuantidade();
 
     return equipamento;
   }
